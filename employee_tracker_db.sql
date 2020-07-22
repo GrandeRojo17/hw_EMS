@@ -1,25 +1,52 @@
 DROP DATABASE IF EXISTS employeeTracker_db;
-CREATE DATABASE employeeTracker_db; --this is a query statement
+CREATE DATABASE employeeTracker_db;
 USE employeeTracker_db;
 
---Create an object of type department with fields ID and name
-CREATE TABLE department (
-    id INT AUTO_INCREMENT NOT NULL,
-name VARCHAR(30) NOT NULL,
-);
-CREATE TABLE role (
-id INT AUTO_INCREMENT NOT NULL,
 
-title VARCHAR(30) NOT NULL,
-salary INTEGER(30) NOT NULL,
-department_id INTEGER
+CREATE TABLE department
+(
+    id INT
+    AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR
+    (30) UNIQUE NOT NULL,
 );
-CREATE TABLE employee (
-id INTEGER NOT NULL,
-firstName VARCHAR(30),
-LastName VARCHAR(30),
-role_id INTEGER(30),
-manager_id INTEGER(30) DEFAULT 'none',
+    CREATE TABLE role
+    (
+        id INT
+        UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+        title VARCHAR
+        (30) NOT NULL,
+        salary Decimal UNSIGNED NOT NULL,
+        department_id INT UNSIGNED NOT NULL
+        INDEX dep_ID
+        (department_id),
+        CONSTRAINT fk_department Foreign KEY
+        (department_id) REFERENCES department
+        (id) ON
+        DELETE CASCADE
 );
-INSERT INTO department(id,name)
-VALUES (01,"Human Resources")
+        CREATE TABLE employee
+        (
+            id UNSIGNED
+            INTEGER NOT NULL,
+            firstName VARCHAR
+            (30),
+            LastName VARCHAR
+            (30),
+            role_id UNSIGNED INT NOT NULL,
+            INDEX role_ID
+            (role_id),
+            CONSTRAINT fk_role FOREIGN KEY
+            (role_id) REFERENCES role
+            (id) ON
+            DELETE CASCADE,
+            manager_id INT UNSIGNED,
+            INDEX man_ID
+            (manager_id),
+            CONSTRAINT fk_manager FOREIGN KEY
+            (manager_id) REFERENCES employee
+            (id) ON
+            DELETE
+            SET NULL
+            );
+           
