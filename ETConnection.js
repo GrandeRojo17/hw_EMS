@@ -1,31 +1,9 @@
+//decided to set up the connection query with async await instead of call backs.
+//UTIL Takes a function following the common error-first callback style, i.e. taking a (err, value) => ... callback as the last argument
+//returns a version that returns promises.
+const util = require('util');
 var mysql = require("mysql");
-
-var connection = mysql.createConnection({
-  // host is the computer "address" for the database server
-  host: "localhost",
-
-  // Your port; if not 3306 WE could schangfe this isn the setup if you wish
-  port: 3356,
-
-  // Your username
-  //gerenarl practice is a bad idea
-  user: "root",
-
-  // Your password this is the password set up to our sql server
-  password: "password",
-  //This is the same thing as schema
-  database: "employeeTracke_db",
-});
-
-connection.connect((err) => {
-  if (err) throw err;
-  console.log("connected as id " + connection.threadId);
-  afterConnection();
-});
-function afterConnection() {
-  connection.query("SELECT * FROM department", (err, res) => {
-    if (err) throw err;
-    console.log(res);
-    connection.end();
-  });
-}
+const connection = mysql.createConnection({ host: "localhost", port: 3356, user: "root", password: "password", database: "employeeTracke_db", });
+connection.connect();
+connection.query = util.promisify(connection.query);
+module.exports = connection;
