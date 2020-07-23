@@ -69,6 +69,22 @@ function startDB() {
             }
         })
 }
+function viewEmployees() {
+    connection.query("SELECT * FROM employee", function (err, data) {
+        console.table(data);
+        searchDB();
+    });
+}
+
+function viewAllRoles() {
+    connection.query("SELECT * FROM role", function (err, res) {
+        if (err) throw err;
+        console.table(res);
+        searchDB(); ``
+    })
+
+}
+
 function viewAllDepartments() {
     connection.query("SELECT * FROM department", function (err, res) {
         if (err) throw err;
