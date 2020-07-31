@@ -93,6 +93,24 @@ function viewAllDepartments() {
     })
 
 }
+const function removeEmployee(){
+    const employees = await db.findAllEmployees();
+    const employeeChoices = employees.map(({id,firstName,LastName}) => ({name: `${firstName}${lastName}`,value:id}));
+
+    const {employeeId} = await prompt([{type:"list"
+,name:"employeeId",message: "Which emplooee whould you like to fire?",choices:employeeChoices
+
+
+}]);
+
+await db.removeEmployee(employeeId);
+
+
+
+
+
+
+}
 
 function exitApp() {
     console.log("Ending Program!");

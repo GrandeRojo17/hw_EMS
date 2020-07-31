@@ -34,14 +34,14 @@ name VARCHAR
             LastName VARCHAR
             (30),
             role_id UNSIGNED INT NOT NULL,
-            INDEX role_ID
+            INDEX role_id
             (role_id),
             CONSTRAINT fk_role FOREIGN KEY
             (role_id) REFERENCES role
             (id) ON
             DELETE CASCADE,
             manager_id INT UNSIGNED,
-            INDEX man_ID
+            INDEX man_id
             (manager_id),
             CONSTRAINT fk_manager FOREIGN KEY
             (manager_id) REFERENCES employee
