@@ -1,5 +1,7 @@
 //Main db query parameters that is used define how the connection will "connect".
 const connection = require("./connection");//Create the variable for connection
+//create a DB class
+//this will host the query commands and access them when needed.
 class DB {
     constructor(connection) {
         this.connection = connection;
