@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS employeeTracker_db;
-CREATE DATABASE employeeTracker_db;
-USE employeeTracker_db;
+DROP DATABASE IF EXISTS employees_DB;
+CREATE DATABASE employees_DB;
+USE employees_DB;
 
 
 CREATE TABLE department
@@ -50,3 +50,17 @@ name VARCHAR
             SET NULL
             );
            
+
+
+               CREATE TABLE role
+    (
+        id INT
+        UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+        title VARCHAR
+        (30) NOT NULL,
+        salary Decimal  NOT NULL,
+        department_id INT NOT NULL,
+        INDEX dep_id (department_id),
+        CONSTRAINT fk_department FOREIGN KEY
+        (department_id) REFERENCES department (id) ON DELETE CASCADE
+);

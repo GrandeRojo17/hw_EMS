@@ -4,7 +4,7 @@
 const util = require('util');
 var mysql = require("mysql");//set the file up to work with mysql.
 const connection = mysql.createConnection({
-    host: "localhost", port: 3356, user: "root", password: "password", database: "employeetracker_db"
+    host: "localhost", user: "root", password: "password", database: "employees_db"
 });
 connection.connect();
 connection.query = util.promisify(connection.query);

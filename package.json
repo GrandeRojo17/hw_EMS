@@ -1,0 +1,29 @@
+{
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "Employee Management System. A CLI tool for Management to keep track of a corporations staff. FULL WORKING APPLICATION COMING SOON",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ascii-art-font": "^1.0.2",
+    "asciiart-logo": "^0.2.6",
+    "console.table": "^0.10.0",
+    "inquirer": "^7.3.3",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GrandeRojo17/hw_EMS.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/GrandeRojo17/hw_EMS/issues"
+  },
+  "homepage": "https://github.com/GrandeRojo17/hw_EMS#readme"
+}

@@ -1,5 +1,5 @@
 //Main db query parameters that is used define how the connection will "connect".
-const connection = require("./ETConnection");//Create the variable for connection
+const connection = require("./connection");//Create the variable for connection
 class DB {
     constructor(connection) {
         this.connection = connection;
